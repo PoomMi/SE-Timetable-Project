@@ -72,7 +72,6 @@
     <a href="#default" class="logo">Timetable Management</a>
     <div class="header-right">
     <a class="active" href="home">Home</a>
-    <a href="subjects">Course</a>
     <a href="user">My account</a>
 
     
