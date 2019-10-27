@@ -39,7 +39,7 @@ class SubjectController extends Controller
         //
     }
 
-    public function subjectSearch(Request $request){
+    public function subject_search(Request $request){
         $y=$request->get('year');
         $s=$request->get('semester');
         $info = subject::all();

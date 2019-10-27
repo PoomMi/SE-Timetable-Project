@@ -4,7 +4,7 @@
 @section('content')
 
 	<form method="post" action="student_search" class="search-form">
-		<input type="text" name="std_search" 
+		<input type="text" name="std_id" 
 		placeholder="{{trans('message.search_detail').'600611028' }}" value="@if(isset($id)) {{$id}} @endif">
 		<input type="submit" value="{{trans('message.search') }}">
 		{{ csrf_field() }}

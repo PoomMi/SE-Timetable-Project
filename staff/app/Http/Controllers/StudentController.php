@@ -40,9 +40,10 @@ class StudentController extends Controller
     }
     
     public function student_search(Request $request){
-        $id=$request->input('std_search');
-        $info = student::where('std_id', '=', $id)->first();
+        //select data from DB
+        $info = student::where('std_id', '=', $request->input('std_id'))->first();
 
+        //check that Is data exist
         if($info === null){
             return view('staff.student_info')
             ->with('check', false);
@@ -57,7 +58,7 @@ class StudentController extends Controller
             }
 
             return view('staff.student_info')
-            ->with('id',$id)
+            ->with('id', $request->input('std_id'))
             ->with('info',$info)
             ->with('link', $link)
             ->with('check', true);

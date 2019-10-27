@@ -2,6 +2,7 @@
 @section('title', 'Subbject Suggestion')
 <link rel="stylesheet" type="text/css" href="{{asset('/css/subject_sugg_style.css') }}">
 @section('content')
+
 <style>
 	th ,td{
 		text-align:center;
@@ -14,7 +15,7 @@
 </style>
 
 
-	<form method="post" action="subjectSearch" class="search-form">
+	<form method="post" action="subject_search" class="search-form">
 			<b>{{trans('message.year') }}</b>
 			<select name="year">
             @if(isset($y))
@@ -47,20 +48,4 @@
 		</div>
 	</form>
 
-	<table>
-		<tr>
-			<th><b>{{trans('message.subjectID') }} </b></th>
-			<th><b>{{trans('message.subjectName') }} </b></th>
-		</tr>
-		@if(isset($y) && isset($s))
-		@foreach($info as $i)
-		@if($i['year']==$y && $i['semester']==$s)
-		<tr>
-			<td>{{$i['subj_id']}}</td>
-			<td>{{$i['name']}}</td>
-		</tr>
-		@endif
-		@endforeach
-		@endif
-	</table>
 @stop

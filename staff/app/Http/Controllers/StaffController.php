@@ -19,6 +19,8 @@ class StaffController extends Controller
         return view('staff.admin', compact('info', $info));
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -37,6 +39,29 @@ class StaffController extends Controller
      */
     public function store(Request $data)
     {
+        //condition to check Ts it null
+        if($data->input('name') === null){
+            echo "<script type='text/javascript'>alert('qaz');</script>";
+            return redirect('/management');
+        }
+        else if($data->input('surname') === null){
+            echo "<script>alert('Please, fill surname');</script>";
+            return redirect('/admin_management');
+        }
+        else if($data->input('uname') === null){
+            echo "<script>alert('Please, fill username');</script>";
+            return redirect('/admin_management');
+        }
+        else if($data->input('pwd') === null){
+            echo "<script>alert('Please, fill password');</script>";
+            return redirect('/admin_management');
+        }
+        else if($data->input('role') === null){
+            echo "<script>alert('Please, fill user role');</script>";
+            return redirect('/admin_management');
+        }
+
+        //set data to array
         $staff = array(
             'fname' => $data->input('name'),
             'lname' => $data->input('surname'),
@@ -45,25 +70,40 @@ class StaffController extends Controller
             'role' => $data->input('role')
         );
 
-
+        //insert array to DB
         DB::table('staff')->insert($staff);
 
-        $info = staff::all();
+        //set message to alert
+        $msgN = "Name: ".$staff['fname']." ".$staff['lname'];
+        $msgU = "Username: ".$staff['username'];
+        $msgR = "Role: ".$staff['role'];
+        $msg = "has been added";
 
-        return view('staff.admin')
-        ->with('added', true)
-        ->with('info', $info);
-
+        //alert and get a page
+        echo '<script type="text/javascript">';
+        echo 'alert("'.$msgN.'\n'.$msgU.'\n'.$msgR.'\n\n'.$msg.'");';
+        echo 'window.location.href = "/admin_management";';
+        echo '</script>';
     }
 
     public function delete(Request $data){
+        //temp data
+        $staff = staff::where('staff_id', '=', $data->input('key'))->first();
+
+        //delete data on DB
         staff::where('staff_id', '=', $data->input('key'))->delete();
 
-        $info = staff::all();
+        //set message to alert
+        $msgN = "Name: ".$staff['fname']." ".$staff['lname'];
+        $msgU = "Username: ".$staff['username'];
+        $msgR = "Role: ".$staff['role'];
+        $msg = "has been deleted";
 
-        return view('staff.admin')
-        ->with('deled', true)
-        ->with('info', $info);
+        //alert and get a page
+        echo '<script type="text/javascript">';
+        echo 'alert("'.$msgN.'\n'.$msgU.'\n'.$msgR.'\n\n'.$msg.'");';
+        echo 'window.location.href = "/admin_management";';
+        echo '</script>';
     }
 
     /**
