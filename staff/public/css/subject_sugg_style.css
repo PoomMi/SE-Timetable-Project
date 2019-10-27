@@ -1,0 +1,74 @@
+.search-form{
+	position: relative;
+	top: 15%;
+	margin-left: 5%;
+}
+
+select{
+	width: 8%;
+	padding: 5px 5px;
+	background-color: white; 
+	border: 1px solid #ccc;
+	border-radius: 5px;   	
+  	text-align: center;
+}
+
+#subject-line{
+	position: relative;
+	margin-top: 10%;
+ 	width: 90%;
+}
+
+.form-add{
+	position: fixed;
+    top: 30%;
+    right: 4%;
+    width: 25%;
+    height: 37%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#add-title{
+	position: absolute;
+	top: 5%; left: 5%;
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+.add-input{
+	position: relative;
+	top: 15%; left: 10%;
+}
+
+#btn-add{
+	position: relative;
+    margin-top: 10%;
+    left: -1%;
+    width: 80%;
+    font-size: 16px;
+}
+
+input[type=text]{
+	margin-top: 5%;
+	width: 80%;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+	font-size:18px;
+}
+
+input[type=submit], input[type=button]{
+	position: relative;
+	padding: 5px 5px;
+	margin-left: 1%;
+	background-color: #2ECC71; 
+	border: 3px solid #2ECC71;
+	border-radius: 5px;   	
+  	text-align: center;
+  	color: white;	
+   	font-size: 14px;  
+   	font-weight: bold;	
+   	width: 7%;	 
+   	cursor: pointer; 	
+}
