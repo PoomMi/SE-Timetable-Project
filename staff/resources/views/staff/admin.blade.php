@@ -8,11 +8,11 @@
 	<!-- form to add new user -->
 	<form method="post" action="/add_user" class="add">
 		<b>{{trans('message.add_staff') }}</b><br/>
-		<input type="text" name="name" placeholder="{{trans('message.saff_name')}}">
-		<input type="text" name="surname" placeholder="{{trans('message.staff_surname')}}">
-		<input type="text" name="uname" placeholder="{{trans('message.staff_uname')}}">
-		<input type="password" name="pwd" placeholder="{{trans('message.staff_pwd')}}">
-		<select name="role">
+		<input type="text" name="name" placeholder="{{trans('message.saff_name')}}" class="input-val">
+		<input type="text" name="surname" placeholder="{{trans('message.staff_surname')}}" class="input-val">
+		<input type="text" name="uname" placeholder="{{trans('message.staff_uname')}}" class="input-val">
+		<input type="password" name="pwd" placeholder="{{trans('message.staff_pwd')}}" class="input-val">
+		<select name="role" class="select-role">
 			<option value="" hidden>{{trans('message.role') }}</option>
 			<option value="Staff">{{trans('message.role_staff') }}</option>
 			<option value="Adminstator">{{trans('message.role_admin') }}</option>
@@ -22,6 +22,8 @@
 	</form>
 
 	<hr id="form-line">
+
+	<button class="btn-to-search" title="search user">search</button>
 
 	<!-- area to show content -->
 	<div class="content-wrapper">	
@@ -52,7 +54,7 @@
 		</table>
 	</div>
 
-	<div class="confirm-popup-wrapper"></div>
+	<div class="popup-wrapper"></div>
 	<div class="confirm-popup">
 		<form method="post" action="/del_user">
 			<div class="confirm-title">Are you sure to delete</div>
@@ -66,6 +68,31 @@
 			
 			<input type="submit" value="confirm" class="btn-confirm">
 			<input type="button" value="cancel" class="btn-cancel">
+		
+			{{ csrf_field() }}			
+		</form>
+	</div>
+
+	<div class="search-popup">
+		<form method="post" action="/search_user">
+			<select name="search" class="select-search">
+				<option value="" hidden>search by</option>
+				<option value="name">first name</option>
+				<option value="sname">surname</option>
+				<option value="username">username</option>
+				<option value="role">role</option>
+			</select>
+			<br/>
+
+			<select name="search-by-role" class="select-search-role" hidden>
+				<option value="" hidden>select role</option>
+				<option value="Staff">staff</option>
+				<option value="Adminstator">admin</option>
+			</select>
+
+			<input type="text" name="search-key" class="data-search" placeholder="Enter data" hidden>
+			<input type="submit" value="search" class="btn-search">
+			<div id="search-cancel">cancel</div>
 		
 			{{ csrf_field() }}			
 		</form>

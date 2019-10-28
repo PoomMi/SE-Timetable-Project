@@ -8,17 +8,39 @@ $(document).ready(function(){
     $("#show_role").html( info.role );
   	$("#key").val( info.staff_id );
 
-    $(".confirm-popup-wrapper").show();
+    $(".popup-wrapper").show();
     $(".confirm-popup").show();
   });
 
-  $(".confirm-popup-wrapper").click(function(){
-    $(".confirm-popup-wrapper").hide();
+  $(".popup-wrapper").click(function(){
+    $(".popup-wrapper").hide();
     $(".confirm-popup").hide();
+    $(".search-popup").hide();
   });
 
   $(".btn-cancel").click(function(){
-    $(".confirm-popup-wrapper").hide();
+    $(".popup-wrapper").hide();
     $(".confirm-popup").hide();
+  });
+
+  $(".btn-to-search").click(function(){
+    $(".popup-wrapper").show();
+    $(".search-popup").show();
+  });
+
+  $("#search-cancel").click(function(){
+    $(".popup-wrapper").hide();
+    $(".search-popup").hide();
+  });
+
+  $('.select-search').change(function(){ 
+    if($(this).val()=="role"){
+      $(".data-search").hide();
+      $(".select-search-role").show();
+    }
+    else{
+      $(".select-search-role").hide();
+      $(".data-search").show();
+    }
   });
 });
