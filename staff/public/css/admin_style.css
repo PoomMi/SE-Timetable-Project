@@ -77,46 +77,40 @@ select{
 }
 
 #title-name{
-	padding: 5px;
+	padding: 10px;
 	width: 23%;
 	font-weight: bolder;
 }
 
 #title-sur{
-    padding: 5px;
     width: 23%;
     font-weight: bolder;
 }
 
 #title-user{
-    padding: 5px;
     width: 25%;
     font-weight: bolder;
 }
 
 #title-role{
-    padding: 5px;
     width: 30%;
     font-weight: bolder;
 }
 
 .data-name{
-    padding: 5px;
+    padding: 10px;
     text-align: center;
 }
 
 .data-sur{
-    padding: 5px;
     text-align: center;
 }
 
 .data-user{
-    padding: 5px;
     text-align: center;
 }
 
 .data-role{
-    padding: 5px;
     text-align: center;
 }
 
@@ -138,10 +132,6 @@ select{
 
 .btn-del:hover{
     transform: scale(1.07);
-}
-
-.hide{
-    display: none;
 }
 
 /*scoll bar part*/
@@ -176,7 +166,6 @@ select{
     height: 100%;
     background-color: #AFAFAF;
     opacity: 0.4;
-    z-index: 10;
 }
 
 .confirm-popup{
@@ -184,25 +173,32 @@ select{
     position: absolute;
     top: 50%; left: 50%;
     width: 50%;
-    height: 15%;
+    height: 25%;
     margin-left: -25%;
-    margin-top: -15%;
+    margin-top: -10%;
     background-color: white;
-    font-size: 18px;
     padding: 15px;
     border: 1px solid #C8C8C8;
     border-radius: 10px;
-    z-index: 11;
+}
+
+.confirm-title{
+    font-size: 20px;
+}
+
+.confirm-info{
+    font-size: 16px;
 }
 
 .btn-confirm{
     position: absolute;
-    bottom: 10%; right: 20%;
+    bottom: 10%; right: 18%;
     color: white;
+    font-size: 18px;
     font-weight: bolder;
     background-color: red;
     border: 1px solid red;
-    padding: 5px;
+    padding: 7px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -213,12 +209,13 @@ select{
 
 .btn-cancel{
     position: absolute;
-    bottom: 10%; right: 5%;
+    bottom: 10%; right: 3%;
     color: white;
+    font-size: 18px;
     font-weight: bolder;
     background-color: blue;
     border: 1px solid blue;
-    padding: 5px;
+    padding: 7px;
     border-radius: 5px;
     cursor: pointer;
 }

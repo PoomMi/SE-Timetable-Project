@@ -1,8 +1,10 @@
 @extends('master')
 <link rel="stylesheet" type="text/css" href="/css/admin_style.css">
+<script src="/js/jqury 3.3.1.js"></script>
+<script src="/js/staff_script.js"></script>
 @section('title', 'Admin Mangement')
 @section('content')
-
+	
 	<!-- form to add new user -->
 	<form method="post" action="/add_user" class="add">
 		<b>{{trans('message.add_staff') }}</b><br/>
@@ -33,28 +35,40 @@
 				<hr id="title-line">
 			</tr>
 
-			@if(isset($info))
-				@foreach($info as $i)
-					<tr>
-						<td class="data-name">{{$i->fname}}</td>
-						<td class="data-sur">{{$i->lname}}</td>
-						<td class="data-user">{{$i->username}}</td>
-						<td class="data-role">{{$i->role}}</td>
-						<td>
-							<form method="post" action="/del_user" class="del-wrapper">
-								<input name="key" value="{{$i->staff_id}}" class="hide">
-								<input type="submit" value="Del" class="btn-del" title="Delete User">
-								{{ csrf_field() }}
-							</form>
-						</td>
+			@foreach($info as $i)
+				<tr>
+					<td class="data-name">{{$i->fname}}</td>
+					<td class="data-sur">{{$i->lname}}</td>
+					<td class="data-user">{{$i->username}}</td>
+					<td class="data-role">{{$i->role}}</td>
+					<td>
+						<button class="btn-del" value="{{($i)}}" title="Delete User">
+							Del
+						</button>
+					</td>				
+				</tr>
+			@endforeach
 
-
-						
-					</tr>
-				@endforeach
-			@endif
-			
 		</table>
 	</div>
 
+	<div class="confirm-popup-wrapper"></div>
+	<div class="confirm-popup">
+		<form method="post" action="/del_user">
+			<div class="confirm-title">Are you sure to delete</div>
+
+			<div class="confirm-info">
+				<br/>&emsp;&emsp; Name: <b id="show_name"></b>
+				<br/>&emsp;&emsp; Username: <b id="show_username"></b>
+				<br/>&emsp;&emsp; Role: <b id="show_role"></b>
+			</div>
+			<input type="hidden" name="key" value="" id="key">
+			
+			<input type="submit" value="confirm" class="btn-confirm">
+			<input type="button" value="cancel" class="btn-cancel">
+		
+			{{ csrf_field() }}			
+		</form>
+	</div>
+	
 @stop
