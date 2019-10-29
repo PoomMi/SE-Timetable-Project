@@ -43,7 +43,7 @@
 			</table>
 		</div>
 	@elseif(isset($check) && !$check)
-		<div id="no-data">No Result</div>
+		<div id="no-data">Not Found</div>
 	@endif
 
 @stop

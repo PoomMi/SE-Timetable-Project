@@ -60,8 +60,6 @@ Route::get('/suject_suggestion', 'pagesController@suject_suggestion');
 //rote to search subject info
 Route::post('/subject_search' , 'SubjectController@subject_search');
 
-
-
 //----------------------------------------------------------
 /* Other */
 

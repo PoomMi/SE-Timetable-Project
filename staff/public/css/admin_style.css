@@ -319,3 +319,30 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+#no-data{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    color: #636b6f;
+    font-weight: bolder;
+    font-size: 24px;
+    margin-top: 5%;
+}
+
+#reload{
+    position: absolute;
+    top: 3%; right: 3%;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    padding: 5px;
+    width: 10%;
+    background-color: #3AF0A6;
+    border: 1px solid #3AF0A6;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#reload:hover{
+    transform: scale(1.07);
+}

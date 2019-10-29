@@ -27,31 +27,36 @@
 
 	<!-- area to show content -->
 	<div class="content-wrapper">	
-		<table class="content-container">
-			<tr>
-				<th id="title-name">{{trans('message.a_name') }}</th>
-				<th id="title-sur">{{trans('message.a_surname') }}</th>
-				<th id="title-user">{{trans('message.a_username') }}</th>
-				<th id="title-role">{{trans('message.role') }}</th>
-
-				<hr id="title-line">
-			</tr>
-
-			@foreach($info as $i)
+		@if(isset($check) && !$check)
+				<div id="no-data">Not Found</div>
+				<button id="reload" title="Reload page">reload</button>
+		@else
+			<table class="content-container">
 				<tr>
-					<td class="data-name">{{$i->fname}}</td>
-					<td class="data-sur">{{$i->lname}}</td>
-					<td class="data-user">{{$i->username}}</td>
-					<td class="data-role">{{$i->role}}</td>
-					<td>
-						<button class="btn-del" value="{{($i)}}" title="Delete User">
-							Del
-						</button>
-					</td>				
-				</tr>
-			@endforeach
+					<th id="title-name">{{trans('message.a_name') }}</th>
+					<th id="title-sur">{{trans('message.a_surname') }}</th>
+					<th id="title-user">{{trans('message.a_username') }}</th>
+					<th id="title-role">{{trans('message.role') }}</th>
 
-		</table>
+					<hr id="title-line">
+				</tr>
+
+				@foreach($info as $i)
+					<tr>
+						<td class="data-name">{{$i->fname}}</td>
+						<td class="data-sur">{{$i->lname}}</td>
+						<td class="data-user">{{$i->username}}</td>
+						<td class="data-role">{{$i->role}}</td>
+						<td>
+							<button class="btn-del" value="{{$i}}" title="Delete User">
+								Del
+							</button>
+						</td>				
+					</tr>
+				@endforeach
+
+			</table>
+		@endif
 	</div>
 
 	<div class="popup-wrapper"></div>

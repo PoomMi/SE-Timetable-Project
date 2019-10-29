@@ -3,6 +3,7 @@
 	<head>
 		<link rel = "shortcut icon" type = "image/png" href ="{{asset('/img/icon_img.png') }}" > 
 		<link rel="stylesheet" type="text/css" href="{{asset('/css/master_style.css') }}">
+		<script src="/js/jqury 3.3.1.js"></script>
 		<title>@yield('title')</title>
 	</head>
 

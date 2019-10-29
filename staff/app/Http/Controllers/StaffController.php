@@ -109,7 +109,6 @@ class StaffController extends Controller
 
     //method to search user
     public function staff_search(Request $data){
-        
         //condition to check searching key
         if($data->input('search-select')=="name")  
             $info = staff::where('fname', '=', $data->input('search-key'))->get();
@@ -120,7 +119,14 @@ class StaffController extends Controller
         else if($data->input('search-select')=="role")  
             $info = staff::where('role', '=', $data->input('search-by-role'))->get();
 
-       return view('staff.admin')->with('info', $info);
+        if($info->count() == 0){
+            return view('staff.admin')
+            ->with('check', false);
+        }
+        else{
+            return view('staff.admin')
+            ->with('info', $info);
+        }
     }
 
     /**

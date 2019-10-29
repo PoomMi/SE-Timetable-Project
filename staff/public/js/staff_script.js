@@ -2,7 +2,7 @@ $(document).ready(function(){
   $(".btn-del").click(function(){
 
     var info = JSON.parse($(this).val());
-
+    
     $("#show_name").html( info.fname+" "+info.lname );
     $("#show_username").html( info.username );
     $("#show_role").html( info.role );
@@ -43,4 +43,12 @@ $(document).ready(function(){
       $(".data-search").show();
     }
   });
+
+  
+
+  if($("#no-data").css('display')=="block"){
+      $("#reload").click(function(){
+        window.location.href = "/admin_management";
+      });
+  }
 });
