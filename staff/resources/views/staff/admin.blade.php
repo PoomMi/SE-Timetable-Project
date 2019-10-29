@@ -75,7 +75,7 @@
 
 	<div class="search-popup">
 		<form method="post" action="/search_user">
-			<select name="search" class="select-search">
+			<select name="search-select" class="select-search">
 				<option value="" hidden>search by</option>
 				<option value="name">first name</option>
 				<option value="sname">surname</option>

@@ -86,6 +86,7 @@ class StaffController extends Controller
         echo '</script>';
     }
 
+    //method to delete user
     public function delete(Request $data){
         //temp data
         $staff = staff::where('staff_id', '=', $data->input('key'))->first();
@@ -104,6 +105,22 @@ class StaffController extends Controller
         echo 'alert("'.$msgN.'\n'.$msgU.'\n'.$msgR.'\n\n'.$msg.'");';
         echo 'window.location.href = "/admin_management";';
         echo '</script>';
+    }
+
+    //method to search user
+    public function staff_search(Request $data){
+        
+        //condition to check searching key
+        if($data->input('search-select')=="name")  
+            $info = staff::where('fname', '=', $data->input('search-key'))->get();
+        else if($data->input('search-select')=="sname")  
+            $info = staff::where('lname', '=', $data->input('search-key'))->get();
+        else if($data->input('search-select')=="username")  
+            $info = staff::where('username', '=', $data->input('search-key'))->get();
+        else if($data->input('search-select')=="role")  
+            $info = staff::where('role', '=', $data->input('search-by-role'))->get();
+
+       return view('staff.admin')->with('info', $info);
     }
 
     /**

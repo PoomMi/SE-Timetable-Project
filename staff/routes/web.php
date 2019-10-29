@@ -35,6 +35,9 @@ Route::post('/add_user' , 'StaffController@store');
 //route to delete user
 Route::post('/del_user', 'StaffController@delete');
 
+//route to search user
+Route::post('/search_user', 'StaffController@staff_search');
+
 
 
 //----------------------------------------------------------
