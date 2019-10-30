@@ -1,6 +1,7 @@
 @extends('master')
 @section('title','userEdit')
 @section('content')
+
 <style>
     /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
@@ -35,32 +36,31 @@ input[type=submit]:hover {
   padding: 20px ;
   width:50%;
 }
+
 </style>
 
 <div class="container">
-  <form method="post" action="/studentEdit">
+  <form action="home">
     
-    <input type="text" name="std_id" value="{{$info['std_id']}}" hidden>
-    
+
     <label for="fname">First Name</label>
-    <input type="text" id="fname" name="fname" value="{{$info['fname']}}">
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
     <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lname" value="{{$info['lname']}}">
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
     <label for="phoneNo">Phone number</label>
-    <input type="text" id="phone_no" name="phone_no" value="{{$info['phone_no']}}">
+    <input type="text" id="phoneNo" name="phoneNo" placeholder="Your phone number..">
 
     <label for="fbContact">Facebook contact</label>
-    <input type="text" id="fb_contact" name="fb_contact" value="{{$info['fb_contact']}}">
+    <input type="text" id="fbContact" name="fbContact" placeholder="Your facebook..">
 
     <label for="address">Address</label>
-    <textarea id="address" name="address">{{$info['address']}}</textarea>
+    <textarea id="address" name="address" placeholder="Write your address" style="height:100px;"></textarea>
 
     <input type="submit" value="Submit">
-    {{ csrf_field() }}
 
   </form>
-
+</div>
 </div>
 @stop

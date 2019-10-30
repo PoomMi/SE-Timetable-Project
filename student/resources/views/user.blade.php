@@ -19,14 +19,16 @@
 
 </style>
 
-<div class="container">
-<h3>First name : {{$fname}}</h3>
-<h3>Last name  : {{$lname}}</h3>
-<h3>Phone No   : {{$phoneNo}}</h3>
-<h3>Facebook   : {{$fbContact}}</h3>
-<h3>Year       : {{$year}}</h3>
-<h3>Address    : {{$address}}</h3>
 
-<a href="userEdit"><button class="edit btn">Edit</button></a>
-</div>
+<div class="container">
+  @foreach($students as $i)
+    <h3>Student id : {{$i->std_id}}</h3>
+    <h3>Name : {{$i->fname}}</h3>
+    <h3>Last name : {{$i->lname}}</h3>
+    <h3>Phone no : {{$i->phone_no}}</h3>
+    <h3>Facebook contact : {{$i->fb_contact}}</h3>
+    <h3>Address : {{$i->address}}</h3>
+  @endforeach
+    <a href="/userEdit/{{$i->std_id}}"><button class="btn btn-primary">Edit</button></a>
+  </div>
 @stop
