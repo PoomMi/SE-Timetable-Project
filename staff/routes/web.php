@@ -60,6 +60,15 @@ Route::get('/suject_suggestion', 'pagesController@suject_suggestion');
 //rote to search subject info
 Route::post('/subject_search' , 'SubjectController@subject_search');
 
+//route to add subject
+Route::post('/subject_add' , 'SubjectController@subject_add');
+
+//route to delete subject
+Route::get('/del_subject/{subj_id}' , 'SubjectController@subject_del');
+
+
+
+
 //----------------------------------------------------------
 /* Other */
 

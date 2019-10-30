@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\subject;
 use Illuminate\Http\Request;
+use DB;
 
 class SubjectController extends Controller
 {
@@ -14,8 +15,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $info = subject::all();
-        return view('staff.subject_suggesstion', compact('info', $info));
+        return view('staff.subject_suggesstion');
     }
 
     /**
@@ -42,12 +42,50 @@ class SubjectController extends Controller
     public function subject_search(Request $request){
         $y=$request->get('year');
         $s=$request->get('semester');
-        $info = subject::all();
+        $subjects = subject::all();
 
         return view('staff.subject_sugg')
         ->with('y',$y)
         ->with('s',$s)
-        ->with('info', $info);
+        ->with('subjects', $subjects);
+    }
+
+    public function subject_add(Request $data){
+
+        $subject = array(
+            'year' => $data->input('year'),
+            'semester' => $data->input('semester'),
+            'name' => $data->input('subj_name'),
+            'subj_id' => $data->input('subj_id')
+        );
+
+        DB::table('subjects')->insert($subject);
+
+        $subjects = subject::all();
+        $y = $subject['year'];
+        $s = $subject['semester'];
+
+        return view('staff.subject_sugg')
+        ->with('y',$y)
+        ->with('s',$s)
+        ->with('subjects', $subjects);
+    }
+
+    public function subject_del($data){
+        $info = explode("-", $data);
+
+        //delete data on DB
+        subject::where('subj_id', '=', $info[0])->delete();
+
+        $subjects = subject::all();
+        $y = $info[1];
+        $s = $info[2];
+
+        return view('staff.subject_sugg')
+        ->with('y',$y)
+        ->with('s',$s)
+        ->with('subjects', $subjects);
+
     }
 
     /**

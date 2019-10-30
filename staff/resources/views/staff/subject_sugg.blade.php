@@ -3,18 +3,6 @@
 <link rel="stylesheet" type="text/css" href="{{asset('/css/subject_sugg_style.css') }}">
 @section('content')
 
-<style>
-	th ,td{
-		text-align:center;
-		
-	}
-	table{
-		position:relative;
-		left:8%;
-	}
-</style>
-
-
 	<form method="post" action="subject_search" class="search-form">
 			<b>{{trans('message.year') }}</b>
 			<select name="year">
@@ -39,13 +27,74 @@
 	</form>
 	<hr id="subject-line">
 
-	<form method="post" action="{{URL::to('') }}" class="form-add">
+	<form method="post" action="/subject_add" class="form-add">
 		<span id="add-title">{{trans('message.add_subject') }}</span>
 		<div class="add-input">
-			<input type="text" name="sub_id" placeholder="{{trans('message.add_sub_id') }}">
-			<input type="text" name="sub_name" placeholder="{{trans('message.add_sub_name') }}"> <br/>
-			<input type="button" name="submit" value="{{trans('message.submit') }}" id="btn-add">
+			@if(isset($y))
+				<input type="text" name="year" value="{{$y}}" hidden>
+				<input type="text" name="semester" value="{{$s}}" hidden>
+			@endif
+			<input type="text" name="subj_id" placeholder="{{trans('message.add_sub_id') }}">
+			<input type="text" name="subj_name" placeholder="{{trans('message.add_sub_name') }}"> <br/>
+			<input type="submit" name="submit" value="{{trans('message.submit') }}" id="btn-add">
 		</div>
+
+		{{ csrf_field() }}
 	</form>
+
+	@if(isset($found) && !found)
+		<div class="subject">
+			<div id="no-data">Not Found</div>
+		</div>
+	@endif
+
+	@if(isset($subjects))
+		
+		<div class="subject">
+			<table class="content-container">
+				<tr>
+					<th id="subj-id">{{trans('message.subjectID') }}</th>
+					<th id="subj-name">{{trans('message.subjectName') }}</th>
+
+					<hr id="title-line">
+				</tr>
+			
+				@foreach($subjects as $i)
+					<tr>
+						<td class="data-id">{{$i->subj_id}}</td>
+						<td class="data-name">{{$i->name}}</td>
+						<td>
+							<a href="/del_subject/{{$i->subj_id}}-{{$i->year}}-{{$i->semester}}">
+							<button class="btn-del" value="" title="Delete Subject">
+								Del
+							</button>
+							</a>
+						</td>				
+					</tr>
+				@endforeach
+
+			</table>
+		</div>
+
+	@endif
+	
+
+	<div class="popup-wrapper"></div>
+	<div class="confirm-popup">
+		<form method="post" action="/del_subject">
+			<div class="confirm-title">Are you sure to delete</div>
+
+			<div class="confirm-info">
+				<br/>&emsp;&emsp; Subject ID: <b id="show_subj_id"></b>
+				<br/>&emsp;&emsp; Subject Name: <b id="show_subj_name"></b>
+			</div>
+			<input type="hidden" name="key" value="" id="key">
+			
+			<input type="submit" value="confirm" class="btn-confirm">
+			<input type="button" value="cancel" class="btn-cancel">
+		
+			{{ csrf_field() }}			
+		</form>
+	</div>
 
 @stop
