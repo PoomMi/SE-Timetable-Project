@@ -24,7 +24,7 @@
 						<img class="lang-img" src="{{asset('/img/en.png') }}">
 					</a>
 				</div>
-				<img class="profile-img" src="{{asset('/img/icon_img.png') }}">
+				<img class="profile-img-on-menu" src="{{asset('/img/icon_img.png') }}">
 				<div id="role">ADMINISTRATOR</div>
 
 				<hr id="line">

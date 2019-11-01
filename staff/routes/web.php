@@ -15,11 +15,13 @@
 /* Part of Index */
 
 //route to get staff index page
-Route::get('/', function () {
-    return view('staff.index');
-});
+Route::get('/', 'indexController@index');
 
-Route::get('/management', 'pagesController@staff');
+Route::get('/management', 'indexController@index');
+
+Route::get('/user_edit', 'indexController@user_edit');
+
+Route::post('/configuration', 'indexController@configuration');
 
 
 

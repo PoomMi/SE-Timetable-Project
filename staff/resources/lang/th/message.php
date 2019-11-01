@@ -34,6 +34,7 @@
 		'saff_name' => 'ชื่อจริง',
 		'staff_surname' => 'นามสกุล',
 		'staff_uname' => 'ชื่อผู้ใช้งาน',
+		'staff_new_pwd' => 'รหัสผ่านใหม่',
 		'staff_pwd' => 'รหัสผ่าน',
 		'role' => 'หน้าที่',
 		'role_staff' => 'เจ้าหน้าที่',

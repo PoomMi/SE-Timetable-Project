@@ -34,6 +34,7 @@
 		'saff_name' => 'Enter Name',
 		'staff_surname' => 'Enter Surname',
 		'staff_uname' => 'Enter Username',
+		'staff_new_pwd' => 'Enter New Password',
 		'staff_pwd' => 'Enter Password',
 		'role' => 'Role',
 		'role_staff' => 'Staff',
