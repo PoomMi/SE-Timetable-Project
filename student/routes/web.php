@@ -17,17 +17,22 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', function () {
-    return view('home');
-});
+
 
 Route::get('/course', function () {
     return view('course');
 });
 
-Route::get('/userEdit', function () {
+/*Route::get('/userEdit', function () {
     return view('userEdit');
-});
+});*/
+
+Route::get('/userEdit/{std_id}','StudentController@editForm');
+
+Route::post('/studentEdit','StudentController@studentEdit');
+
+Route::resource('user','StudentController');
+
 
 Route::resource('tasks','TaskController');
 
@@ -35,4 +40,4 @@ Route::resource('subjects','SubjectController');
 
 Route::post('search','SubjectController@search');
 
-Route::get('/user', 'helloController@show');
+
