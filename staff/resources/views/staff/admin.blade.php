@@ -8,7 +8,7 @@
 	<!-- form to add new user -->
 	<form method="post" action="/add_user" class="add">
 		<b>{{trans('message.add_staff') }}</b><br/>
-		<input type="text" name="name" placeholder="{{trans('message.saff_name')}}" class="input-val">
+		<input type="text" name="name" placeholder="{{trans('message.staff_name')}}" class="input-val">
 		<input type="text" name="surname" placeholder="{{trans('message.staff_surname')}}" class="input-val">
 		<input type="text" name="uname" placeholder="{{trans('message.staff_uname')}}" class="input-val">
 		<input type="password" name="pwd" placeholder="{{trans('message.staff_pwd')}}" class="input-val">

@@ -8,6 +8,8 @@
 		'student' => 'Student Information',
 		'subject' => 'Suject Suggestion',
 		'logout' => 'Log out',
+		'thai' => 'Thai',
+		'eng' => 'English',
 
 		//button
 		'search' => 'search',
@@ -31,7 +33,7 @@
 		'subjectName' => 'Subject Name',
 
 		//admin
-		'saff_name' => 'Enter Name',
+		'staff_name' => 'Enter Name',
 		'staff_surname' => 'Enter Surname',
 		'staff_uname' => 'Enter Username',
 		'staff_new_pwd' => 'Enter New Password',
@@ -42,5 +44,6 @@
 		'add_staff' => 'Add User',
 		'a_name' => 'Name',
 		'a_surname' => 'Surname',
-		'a_username' => 'Username'
+		'a_username' => 'Username',
+		'a_new_pwd' => 'New Password'
 	];

@@ -1,3 +1,10 @@
+<?php
+
+use Illuminate\Support\Facades\DB;
+$user = DB::table('staff')->where('username', '=', 'poommich')->first();
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,14 +25,14 @@
 				</div>
 				<div class="lang-wrapper">
 					<a href="{{ URL::to('change/th') }}">
-						<img class="lang-img" src="{{asset('/img/th.png') }}">
+						<img class="lang-img" src="{{asset('/img/th.png') }}" title="{{trans('message.thai') }}">
 					</a>
 					<a href="{{ URL::to('change/en') }}">
-						<img class="lang-img" src="{{asset('/img/en.png') }}">
+						<img class="lang-img" src="{{asset('/img/en.png') }}"  title="{{trans('message.eng') }}">
 					</a>
 				</div>
 				<img class="profile-img-on-menu" src="{{asset('/img/icon_img.png') }}">
-				<div id="role">ADMINISTRATOR</div>
+				<div id="role">{{strtoupper($user->role)}}</div>
 
 				<hr id="line">
 				<a href="{{URL::to('admin_management') }}">
