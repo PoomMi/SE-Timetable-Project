@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
+use App\enroll;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class EnrollController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks.index',compact('tasks',$tasks));
+        //
     }
 
     /**
@@ -25,8 +24,8 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('tasks.create');
-    } 
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -36,49 +35,39 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //validate
-        $request->validate([
-            'title'=>'required|min:3',
-            'description' => 'required'
-        ]);
-
-        $task = Task::create([
-            'title'=> $request->title,
-            'description'=>$request->description
-        ]);
-        return redirect('/tasks/'.$task->id);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Task  $task
+     * @param  \App\enroll  $enroll
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $task)
+    public function show(enroll $enroll)
     {
-        return view('tasks.show', compact('task',$task));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Task  $task
+     * @param  \App\enroll  $enroll
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit(enroll $enroll)
     {
-        return view('tasks.edit',compact('task',$task));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Task  $task
+     * @param  \App\enroll  $enroll
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, enroll $enroll)
     {
         //
     }
@@ -86,10 +75,10 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Task  $task
+     * @param  \App\enroll  $enroll
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy(enroll $enroll)
     {
         //
     }

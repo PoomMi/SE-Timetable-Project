@@ -45,7 +45,7 @@ class SubjectController extends Controller
         $s=$request->get('semester');
         $subjects = subject::all();
         
-        return view('home')
+        return view('course')
         ->with('y', $y)
         ->with('s',$s )
         ->with('subjects',$subjects);
