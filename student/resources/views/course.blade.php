@@ -79,6 +79,7 @@ th, td {
                 <th scope="col">Subject name</th>
                 <th scope="col">Year</th>
                 <th scope="col">Semester</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -88,10 +89,11 @@ th, td {
             @foreach($subjects as $subject)
                 <tr>
                     @if($subject->year==$y&&$subject->semester==$s)
-                    <td>{{$subject->subj_id}}</a></td>
+                    <td>{{$subject->subj_id}}</td>
                     <td>{{$subject->name}}</td>
                     <td>{{$subject->year}}</td>
                     <td>{{$subject->semester}}</td>
+                    <td><input class="btn" type="submit" value="Add"></td>
                     <?php $i++; ?>
                     @endif
                 </tr>
@@ -100,7 +102,6 @@ th, td {
             @if($i==0)
             <script>alert("No result");</script>
             @endif
-
             @endif
         </tbody>
     </table>
