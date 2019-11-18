@@ -33,9 +33,6 @@ Route::post('/studentEdit','StudentController@studentEdit');
 
 Route::resource('user','StudentController');
 
-
-Route::resource('tasks','TaskController');
-
 Route::resource('subjects','SubjectController');
 
 Route::post('search','SubjectController@search');
