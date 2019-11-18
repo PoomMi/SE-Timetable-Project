@@ -28,13 +28,11 @@
 				</tr>
 				<tr>
 					<th>{{trans('message.s_phone') }}</th>
-					<td>{{$info->phone}}</td>
+					<td>{{$info->phone_no}}</td>
 				</tr>
 				<tr>
 					<th>{{trans('message.s_face') }}</th>
-					<td>
-						<a href="http://facebook.com/{{$link}}" id="face-link">{{$info->facebook}}</a> 						
-					</td>
+					<td>{{$info->fb_contact}}</td>
 				</tr>
 				<tr>
 					<th>{{trans('message.s_address') }}</th>

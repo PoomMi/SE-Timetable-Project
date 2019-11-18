@@ -10,7 +10,6 @@ $user = DB::table('staff')->where('username', '=', 'poommich')->first();
 	<head>
 		<link rel = "shortcut icon" type = "image/png" href ="{{asset('/img/icon_img.png') }}" > 
 		<link rel="stylesheet" type="text/css" href="{{asset('/css/master_style.css') }}">
-		<script src="/js/jqury 3.3.1.js"></script>
 		<title>@yield('title')</title>
 	</head>
 
@@ -19,30 +18,41 @@ $user = DB::table('staff')->where('username', '=', 'poommich')->first();
 		<div class = "menu">
 			<ul>
 				<a href="{{URL::to('management') }}">
-				<div class="home-wrapper">
-					<img id="home-img" src="{{asset('/img/home.png')}}">
-					<b><span id="font-home">{{trans('message.home')}}</span></b>
-				</div>
+					<div class="home-wrapper">
+						<img id="home-img" src="{{asset('/img/home.png')}}">
+						<b><span id="font-home">{{trans('message.home')}}</span></b>
+					</div>
+				</a>
 				<div class="lang-wrapper">
 					<a href="{{ URL::to('change/th') }}">
-						<img class="lang-img" src="{{asset('/img/th.png') }}" title="{{trans('message.thai') }}">
+						<span class="lang" title="{{trans('message.thai') }}">TH</span>
 					</a>
+					<span id="bar">|</span>
 					<a href="{{ URL::to('change/en') }}">
-						<img class="lang-img" src="{{asset('/img/en.png') }}"  title="{{trans('message.eng') }}">
+						<span class="lang" title="{{trans('message.eng') }}">ENG</span>					
 					</a>
 				</div>
-				<img class="profile-img-on-menu" src="{{asset('/img/icon_img.png') }}">
-				<div id="role">{{strtoupper($user->role)}}</div>
 
+				<!-- menu title -->
+				<div id="user-name">{{$user->username}}</div>
+				@if($user->role === "Adminstator")
+					<div id="role">{{trans('message.adminstator') }}</div>
+				@elseif($user->role === "Staff")
+					<div id="role">{{trans('message.staff') }}</div>
+				@endif
 				<hr id="line">
-				<a href="{{URL::to('admin_management') }}">
-					<li>
-						<img class="a-img" src="{{asset('/img/config.png') }}">
-						<span class = "font">
-							{{trans('message.admin') }}				
-						</span>
-					</li>
-				</a>
+				
+				<!-- list of menu -->
+				@if($user->role === "Adminstator")
+					<a href="{{URL::to('admin_management') }}">
+						<li>
+							<img class="a-img" src="{{asset('/img/config.png') }}">
+							<span class = "font">
+								{{trans('message.admin') }}				
+							</span>
+						</li>
+					</a>
+				@endif
 				<a href="{{URL::to('student_info') }}">
 					<li>
 						<img class="a-img" src="{{asset('/img/student.png') }}">

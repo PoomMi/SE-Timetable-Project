@@ -42,7 +42,9 @@ class SubjectController extends Controller
     public function subject_search(Request $request){
         $y=$request->get('year');
         $s=$request->get('semester');
-        $subjects = subject::all();
+        
+        $subjects = DB::table('suggest_subject')
+        ->where('year', '=', $y, 'AND', 'semester', '=', $s)->get();
 
         return view('staff.subject_sugg')
         ->with('y',$y)
@@ -51,7 +53,6 @@ class SubjectController extends Controller
     }
 
     public function subject_add(Request $data){
-
         $subject = array(
             'year' => $data->input('year'),
             'semester' => $data->input('semester'),
@@ -59,7 +60,7 @@ class SubjectController extends Controller
             'subj_id' => $data->input('subj_id')
         );
 
-        DB::table('subjects')->insert($subject);
+        DB::table('suggest_subject')->insert($subject);
 
         $subjects = subject::all();
         $y = $subject['year'];
@@ -71,21 +72,22 @@ class SubjectController extends Controller
         ->with('subjects', $subjects);
     }
 
-    public function subject_del($data){
-        $info = explode("-", $data);
+    public function subject_del(Request $data){
+        $id = $data->input('id_key');
+        $y = $data->input('year_key');
+        $s = $data->input('sem_key');
 
         //delete data on DB
-        subject::where('subj_id', '=', $info[0])->delete();
+        DB::table('suggest_subject')->where('subj_id', '=', $id)->delete();
 
-        $subjects = subject::all();
-        $y = $info[1];
-        $s = $info[2];
+        //selext data on DB
+        $subjects = DB::table('suggest_subject')
+        ->where('year', '=', $y, 'AND', 'semester', '=', $s)->get();
 
         return view('staff.subject_sugg')
         ->with('y',$y)
         ->with('s',$s)
         ->with('subjects', $subjects);
-
     }
 
     /**

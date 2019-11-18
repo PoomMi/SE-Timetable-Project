@@ -3,8 +3,6 @@
 <link rel="stylesheet" type="text/css" href="{{asset('/css/user_edit_style.css') }}">
 @section('content')
 
-	<img src="{{asset('/img/icon_img.png') }}" id="profile-img">
-
 	<form method="post" action="/configuration" class="edit-form">
 		<div class="title">{{trans('message.a_name') }}</div>
 		<input type="text" name="name" value="{{$user->fname}}" placeholder="{{trans('message.saff_name') }}">

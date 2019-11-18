@@ -1,14 +1,16 @@
 @extends('master')
 @section('title', 'Subbject Suggestion')
 <link rel="stylesheet" type="text/css" href="{{asset('/css/subject_sugg_style.css') }}">
+<script src="/js/jqury 3.3.1.js"></script>
+<script src="/js/suject_script.js"></script>
 @section('content')
 
 	<form method="post" action="subject_search" class="search-form">
 			<b>{{trans('message.year') }}</b>
 			<select name="year">
             @if(isset($y))
-      <option value="{{$y}}" hidden> {{$y}}</option>
-      @endif
+      			<option value="{{$y}}" hidden> {{$y}}</option>
+     		 @endif
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -17,12 +19,12 @@
 			&nbsp&nbsp<b>{{trans('message.semester') }} </b>
 			<select name="semester">
             @if(isset($s))
-      <option value="{{$s}}" hidden> {{$s}}</option>
-      @endif
+      			<option value="{{$s}}" hidden> {{$s}}</option>
+      		@endif
 				<option value="1">1</option>
 				<option value="2">2</option>
 			</select>
-			<input type="submit" name="search" value="{{trans('message.search') }}">
+			<input type="submit" name="search" value="{{trans('message.search') }}" id="btn-search">
             {{ csrf_field() }}
 	</form>
 	<hr id="subject-line">
@@ -64,11 +66,9 @@
 						<td class="data-id">{{$i->subj_id}}</td>
 						<td class="data-name">{{$i->name}}</td>
 						<td>
-							<a href="/del_subject/{{$i->subj_id}}-{{$i->year}}-{{$i->semester}}">
-							<button class="btn-del" value="" title="Delete Subject">
+							<button class="btn-del" value="{{ json_encode($i)}}" title="Delete Subject">
 								Del
 							</button>
-							</a>
 						</td>				
 					</tr>
 				@endforeach
@@ -85,11 +85,15 @@
 			<div class="confirm-title">Are you sure to delete</div>
 
 			<div class="confirm-info">
+				<br/>&emsp;&emsp; Year: <b id="show_yaer"></b>
+				&emsp;&emsp; Semester: <b id="show_semester"></b>
 				<br/>&emsp;&emsp; Subject ID: <b id="show_subj_id"></b>
 				<br/>&emsp;&emsp; Subject Name: <b id="show_subj_name"></b>
 			</div>
-			<input type="hidden" name="key" value="" id="key">
-			
+			<input type="hidden" name="id_key" value="" id="id-key">
+			<input type="hidden" name="year_key" value="" id="year-key">
+			<input type="hidden" name="sem_key" value="" id="sem-key">
+	
 			<input type="submit" value="confirm" class="btn-confirm">
 			<input type="button" value="cancel" class="btn-cancel">
 		

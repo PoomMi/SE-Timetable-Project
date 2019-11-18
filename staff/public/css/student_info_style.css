@@ -29,7 +29,7 @@ input[type=submit], input[type=button]{
 
 #student-line{
 	position: relative;
-	margin-top: 5%;
+	margin-top: 65px;
  	width: 90%;
 }
 
@@ -53,10 +53,6 @@ th{
 td{
 	max-width: 400px;
 	overflow-wrap: break-word;
-}
-
-#face-link{
-	color: blue;
 }
 
 #no-data{

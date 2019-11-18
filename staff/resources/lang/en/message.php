@@ -10,6 +10,8 @@
 		'logout' => 'Log out',
 		'thai' => 'Thai',
 		'eng' => 'English',
+		'adminstator' => 'ADMINSTATOR',
+		'staff' => 'STAFF',
 
 		//button
 		'search' => 'search',
@@ -29,8 +31,16 @@
 		'add_subject' => 'Add Subject',
 		'add_sub_id' => 'Enter Subject ID',
 		'add_sub_name' => 'Enter Subject Name',
+		'add_day' => 'Enter Day(s)',
+		'add_start_time' => 'Start',
+		'add_end_time' => 'End',
+		'add_section' => 'Enter Section',
 		'subjectID' => 'Subject ID',
 		'subjectName' => 'Subject Name',
+		'subjectSec' => 'Section',
+		'subjectDay' => 'Day',
+		'subjectTime' => 'Time',
+
 
 		//admin
 		'staff_name' => 'Enter Name',

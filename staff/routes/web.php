@@ -16,11 +16,12 @@
 
 //route to get staff index page
 Route::get('/', 'indexController@index');
-
 Route::get('/management', 'indexController@index');
 
+//route to get page for edit user info
 Route::get('/user_edit', 'indexController@user_edit');
 
+//route to update user info
 Route::post('/configuration', 'indexController@configuration');
 
 
@@ -66,7 +67,7 @@ Route::post('/subject_search' , 'SubjectController@subject_search');
 Route::post('/subject_add' , 'SubjectController@subject_add');
 
 //route to delete subject
-Route::get('/del_subject/{subj_id}' , 'SubjectController@subject_del');
+Route::post('/del_subject' , 'SubjectController@subject_del');
 
 
 

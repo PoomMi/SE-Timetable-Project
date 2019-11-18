@@ -10,6 +10,8 @@
 		'logout' => 'ออกจากระบบ',
 		'thai' => 'ภาษาไทย',
 		'eng' => 'ภาษาอังกฤษ',
+		'adminstator' => 'ผู้ดูแลระบบ',
+		'staff' => 'เจ้าหน้าที่',
 
 		//button
 		'search' => 'ค้นหา',
@@ -29,8 +31,16 @@
 		'add_subject' => 'เพิ่มกระบวนวิชา',
 		'add_sub_id' => 'กรอกรหัสกระบวนวิชา',
 		'add_sub_name' => 'กรอกชื่อกระบวนวิชา',
+		'add_day' => 'วัน',
+		'add_start_time' => 'เริ่ม',
+		'add_end_time' => 'จบ',
+		'add_section' => 'ตอนที่',
 		'subjectID' => 'รหัสกระบวนวิชา',
 		'subjectName' => 'ชื่อกระบวนวิชา',
+		'subjectSec' => 'ตอนที่',
+		'subjectDay' => 'วัน',
+		'subjectTime' => 'เวลา',
+
 
 		//admin
 		'staff_name' => 'ชื่อจริง',

@@ -3,23 +3,20 @@
 <link rel="stylesheet" type="text/css" href="{{asset('/css/index_style.css') }}">
 @section('content')
 
-	<img src="{{asset('/img/icon_img.png') }}" id="profile-img">
-
-
 	<div class="info-wrapper">
 		<div id="name">
 			<span class="user-title">{{trans('message.a_name') }}</span>
 			<span class="user-info">: {{$user->fname}}</span>
 		</div>
-		<div id="surname">
+		<div id="surname" class="title">
 			<span class="user-title">{{trans('message.a_surname') }}</span>
 			<span class="user-info">: {{$user->lname}}</span>			
 		</div>
-		<div id="username">
+		<div id="username" class="title">
 			<span class="user-title">{{trans('message.a_username') }}</span>
 			<span class="user-info">: {{$user->username}}</span>			
 		</div>
-		<div id="user-role">
+		<div id="user-role" class="title">
 			<span class="user-title">{{trans('message.role') }}</span>
 			<span class="user-info">: {{$user->role}}</span>		
 		</div>	
