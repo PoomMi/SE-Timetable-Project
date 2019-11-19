@@ -19,10 +19,14 @@ Route::get('/', function () {
 
 
 
+
 Route::get('/course', function () {
     return view('course');
 });
 
+Route::get('/courseSearch', function () {
+    return view('courseSearch');
+});
 /*Route::get('/userEdit', function () {
     return view('userEdit');
 });*/
@@ -36,5 +40,7 @@ Route::resource('user','StudentController');
 Route::resource('subjects','SubjectController');
 
 Route::post('search','SubjectController@search');
+
+Route::post('add','EnrollsController@add');
 
 

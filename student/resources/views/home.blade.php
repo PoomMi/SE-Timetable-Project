@@ -18,24 +18,24 @@ th, td {
 }
 
 .choose{
-        position:relative;
-        padding: 20px;
-        background-color: #f1f1f1;
-        top :20px;
-        border-radius:10px;
-        width:50%;
-    }
-    label{
-        width:80%;
-    }
-    select{
-        width:19%;
-    }
-    .btn{
-        background-color: #4CAF50;
-        color: white;
-        width:100%;
-    }
+  position:relative;
+  padding: 20px;
+  background-color: #f1f1f1;
+  top :20px;
+  border-radius:10px;
+  width:50%;
+}
+label{
+  width:80%;
+}
+select{
+  width:19%;
+}
+.btn{
+  background-color: #4CAF50;
+  color: white;
+  width:100%;
+}
 </style>
 
 <h1 style="text-align:center; padding: 10px;" >My Timetable</h1>
@@ -44,7 +44,7 @@ th, td {
   <table>
     <tr>
       <th style="background-color:#ddd;"></th>
-      <th style="background-color:#ddd;">8000-0930</th>
+      <th style="background-color:#ddd;">0800-0930</th>
       <th style="background-color:#ddd;">0930-1100</th>
       <th style="background-color:#ddd;">1100-1230</th>
       <th style="background-color:#ddd;">1300-1430</th>
@@ -63,7 +63,6 @@ th, td {
       <td></td>
       <td></td>
       <td></td>
-      
     </tr>
     <tr>
       <th style="background-color:#ddd;">TUESDAY</th>
@@ -75,7 +74,6 @@ th, td {
       <td></td>
       <td></td>
       <td></td>
-     
     </tr>
     <tr>
       <th style="background-color:#ddd;">WEDNESDAY</th>
@@ -86,9 +84,7 @@ th, td {
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-
-      
+      <td></td>      
     </tr>
     <tr>
       <th style="background-color:#ddd;">THURSDAY</th>
@@ -99,8 +95,7 @@ th, td {
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      
+      <td></td> 
     </tr>
     <tr>
       <th style="background-color:#ddd;">FRIDAY</th>
@@ -111,8 +106,7 @@ th, td {
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      
+      <td></td>     
     </tr>
     <tr>
       <th style="background-color:#ddd;">SATURDAY</th>
@@ -124,7 +118,6 @@ th, td {
       <td></td>
       <td></td>
       <td></td>
-      
     </tr>
     <tr>
       <th style="background-color:#ddd;">SUNDAY</th>
@@ -139,9 +132,4 @@ th, td {
     </tr>
   </table>
 </div>
-
-
-
-
-
 @stop

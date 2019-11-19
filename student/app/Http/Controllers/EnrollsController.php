@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\enroll;
+use DB;
+use App\enrolls;
 use Illuminate\Http\Request;
 
-class EnrollController extends Controller
+class EnrollsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,22 @@ class EnrollController extends Controller
     public function index()
     {
         //
+    }
+
+
+    public function add(Request $request){
+        $std_id = $request->input('std_id');
+        $subj_id = $request->input('subj_id');
+        $data = array(
+            //db column            //form name
+            'std_id'=> $request->input('std_id'),
+            'subj_id'=> $request->input('subj_id')
+        );
+
+        enrolls::where('std_id', '=', $std_id)->insert($data);
+        
+        echo "<script>window.location.href='/';</script>";
+
     }
 
     /**
@@ -41,10 +57,10 @@ class EnrollController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\enroll  $enroll
+     * @param  \App\enrolls  $enrolls
      * @return \Illuminate\Http\Response
      */
-    public function show(enroll $enroll)
+    public function show(enrolls $enrolls)
     {
         //
     }
@@ -52,10 +68,10 @@ class EnrollController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\enroll  $enroll
+     * @param  \App\enrolls  $enrolls
      * @return \Illuminate\Http\Response
      */
-    public function edit(enroll $enroll)
+    public function edit(enrolls $enrolls)
     {
         //
     }
@@ -64,10 +80,10 @@ class EnrollController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\enroll  $enroll
+     * @param  \App\enrolls  $enrolls
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, enroll $enroll)
+    public function update(Request $request, enrolls $enrolls)
     {
         //
     }
@@ -75,10 +91,10 @@ class EnrollController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\enroll  $enroll
+     * @param  \App\enrolls  $enrolls
      * @return \Illuminate\Http\Response
      */
-    public function destroy(enroll $enroll)
+    public function destroy(enrolls $enrolls)
     {
         //
     }

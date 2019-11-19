@@ -404,7 +404,7 @@ class ComposerStaticInitd0bdbeeb2658c88e3b1bb9096bbe23b8
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Student' => __DIR__ . '/../..' . '/app/Student.php',
-        'App\\enroll' => __DIR__ . '/../..' . '/app/enroll.php',
+        'App\\enrolls' => __DIR__ . '/../..' . '/app/enrolls.php',
         'App\\subject' => __DIR__ . '/../..' . '/app/subject.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',

@@ -18,7 +18,7 @@ class CreateSubjectsTable extends Migration
             $table->integer('year');
             $table->integer('semester');
             $table->string('name');
-            $table->string('subj_id');
+            $table->integer('subj_id');
         });
     }
 

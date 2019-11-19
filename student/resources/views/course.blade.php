@@ -83,6 +83,8 @@ th, td {
             </tr>
         </thead>
         <tbody>
+        <form action="add" method="post">
+        <input type="text" name="std_id" value="600611006" hidden>
           <?php $i=0;?>
             @if(isset($y) && isset($s))
 
@@ -93,7 +95,9 @@ th, td {
                     <td>{{$subject->name}}</td>
                     <td>{{$subject->year}}</td>
                     <td>{{$subject->semester}}</td>
+                    <input type="text" name="subj_id" value="{{$subject->subj_id}}" hidden>
                     <td><input class="btn" type="submit" value="Add"></td>
+                    {{ csrf_field() }}
                     <?php $i++; ?>
                     @endif
                 </tr>
@@ -103,6 +107,7 @@ th, td {
             <script>alert("No result");</script>
             @endif
             @endif
+            </form>
         </tbody>
     </table>
     
